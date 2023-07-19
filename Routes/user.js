@@ -86,7 +86,7 @@ router.post("/forgotpassword", async (req, res) => {
             return res.status(400).json({ message: false, error: "emailid not received" })
         }
         const randomSting = process.env.RANDOM_STRING + user._id;
-        const link = `${URL}?id=${user._id}&randomstring=${randomSting}`
+        const link = `${URL}/password-reset?id=${user._id}&randomstring=${randomSting}`
         // console.log(link)
 
         const mailOptions = {
