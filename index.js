@@ -19,7 +19,7 @@ app.use(cors());
 // application middleware
 app.use("/user", userRouter);
 app.use("/userall", getAllUser);
-app.use("/home", authorizeLogin);
+app.use("/home", isAuthenticated, authorizeLogin);
 
 
 // intial landing page

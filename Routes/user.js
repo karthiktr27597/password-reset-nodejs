@@ -13,6 +13,8 @@ const transport = nodemailer.createTransport({
 
 const router = express.Router();
 
+const URL = 'https://password-resetapp.netlify.app'
+
 
 // signup page
 router.post("/signup", async (req, res) => {
@@ -84,7 +86,7 @@ router.post("/forgotpassword", async (req, res) => {
             return res.status(400).json({ message: false, error: "emailid not received" })
         }
         const randomSting = process.env.RANDOM_STRING + user._id;
-        const link = `http://localhost:3000/password-reset?id=${user._id}&randomstring=${randomSting}`
+        const link = `${URL}?id=${user._id}&randomstring=${randomSting}`
         // console.log(link)
 
         const mailOptions = {
